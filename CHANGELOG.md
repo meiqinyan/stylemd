@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.1] - 2025-04-13
+
+### Changed
+- Added `.github/release-drafter.yml` configuration file to enable automatic release notes.
+- Updated comments in `.github/release-drafter.yml` to English.
+
 ## [1.0.0] - 2025-04-13
 
 ### Added
@@ -37,4 +43,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added live preview links for themes in README.
 - Added attribution footer to example Markdown files.
 
+[1.0.1]: https://github.com/ddukbg/stylemd/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/ddukbg/stylemd/releases/tag/v1.0.0 

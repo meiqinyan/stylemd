@@ -1,6 +1,6 @@
 {
   "name": "stylemd",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Generate static HTML pages from Markdown with themes.",
   "main": "index.js",
   "bin": {
