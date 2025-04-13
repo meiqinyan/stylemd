@@ -1,0 +1,45 @@
+# .github/release-drafter.yml
+
+# Template for the next release name (e.g., v1.0.1)
+name-template: 'v$NEXT_PATCH_VERSION'
+# Template for the tag name to be created
+tag-template: 'v$NEXT_PATCH_VERSION'
+
+# Categorize changes based on commit messages or PR labels
+# (Default setting: label-based)
+categories:
+  - title: '🚀 Features'
+    labels:
+      - 'feature'
+      - 'enhancement'
+  - title: '🐛 Bug Fixes'
+    labels:
+      - 'fix'
+      - 'bugfix'
+      - 'bug'
+  - title: '📄 Documentation'
+    label: 'documentation'
+  - title: '🛠️ Maintenance' # Other maintenance tasks
+    label: 'chore'
+    # Alternatively, include changes without the default labels here
+    # exclude-labels:
+    #   - 'feature'
+    #   - 'enhancement'
+    #   - 'fix'
+    #   - 'bugfix'
+    #   - 'bug'
+    #   - 'documentation'
+
+# Release notes template
+template: |
+  ## Changes
+
+  $CHANGES
+
+# Template variables (optional)
+# template-variables:
+#   foo: bar
+
+# List of contributors to exclude from the release notes (optional)
+# exclude-contributors:
+#   - 'github-actions[bot]' 
