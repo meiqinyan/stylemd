@@ -1,0 +1,51 @@
+name: Publish to npm and Create Release
+
+on:
+  push:
+    tags:
+      - 'v*' # Trigger on version tags like v1.0.0
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Needed to create GitHub releases and potentially generate release notes
+      id-token: write # Needed for trusted publishing with npm (replaces NODE_AUTH_TOKEN if configured)
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetches all history for better changelog generation
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*' # Use Long Term Support version
+          registry-url: 'https://registry.npmjs.org/'
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Add build or test steps here if needed
+      # - name: Build project
+      #   run: npm run build
+      # - name: Run tests
+      #   run: npm test
+
+      - name: Publish package to npm
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Create GitHub Release
+        uses: release-drafter/release-drafter@v6 # Using release-drafter for better automatic notes (optional but recommended)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # Alternatively, use actions/create-release with generate_release_notes:
+        # uses: actions/create-release@v1
+        # env:
+        #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # with:
+        #   tag_name: ${{ github.ref_name }}
+        #   release_name: Release ${{ github.ref_name }}
+        #   generate_release_notes: true # Enable automatic release notes
