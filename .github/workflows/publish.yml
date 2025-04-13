@@ -38,14 +38,18 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Create GitHub Release
-        uses: release-drafter/release-drafter@v6 # Using release-drafter for better automatic notes (optional but recommended)
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        # Alternatively, use actions/create-release with generate_release_notes:
-        # uses: actions/create-release@v1
+        # uses: release-drafter/release-drafter@v6 # Using release-drafter for better automatic notes (optional but recommended)
         # env:
         #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        # with:
-        #   tag_name: ${{ github.ref_name }}
-        #   release_name: Release ${{ github.ref_name }}
-        #   generate_release_notes: true # Enable automatic release notes
+        # Alternatively, use actions/create-release with generate_release_notes:
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref_name }} # Use the tag that triggered the workflow
+          release_name: Release ${{ github.ref_name }} # Release name like "Release v1.0.1"
+          generate_release_notes: true # Enable automatic release notes generation
+          # body: | # Manual body if generate_release_notes is false
+          #   See the [CHANGELOG.md](CHANGELOG.md) for details.
+          draft: false
+          prerelease: false
