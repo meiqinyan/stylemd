@@ -1,0 +1,28 @@
+{
+  "name": "stylemd",
+  "version": "0.1.0",
+  "description": "Generate static HTML pages from Markdown with themes.",
+  "main": "index.js",
+  "bin": {
+    "stylemd": "./bin/stylemd.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "markdown",
+    "static",
+    "site",
+    "generator",
+    "theme"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^11.1.0",
+    "fs-extra": "^11.2.0",
+    "handlebars": "^4.7.8",
+    "marked": "^11.2.0"
+  }
+}
