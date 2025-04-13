@@ -9,7 +9,9 @@ A command-line tool to generate static HTML pages from Markdown files, applying 
 
 <!-- Core Functionality Visual Placeholder -->
 <p align="center">
-  <img src="docs/images/stylemd-flow-example-win98.png" alt="Markdown to Styled HTML Example (Windows 98 Theme)" width="700"/>
+    <img src="docs/images/example-retro-console.gif" alt="stylemd Demo GIF - Markdown to Styled HTML" width="700"/>
+    <img src="docs/images/example-geocities.gif" alt="stylemd Demo GIF - Markdown to Styled HTML" width="700"/>
+    <img src="docs/images/example-windows98.gif" alt="stylemd Demo GIF - Markdown to Styled HTML" width="700"/>
 </p>
 
 [![NPM Version](https://img.shields.io/npm/v/stylemd.svg)](https://www.npmjs.com/package/@ddukbg/stylemd) <!-- Placeholder: Replace with actual badge if published -->
